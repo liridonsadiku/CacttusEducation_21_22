@@ -16,6 +16,9 @@ public class LoginActivity extends AppCompatActivity {
     EditText etEmailOrUsername, etPassword;
     Button btnLogin, btnOpenUrl, btnCallNumber;
 
+    public static final int REQUEST_CODE_MAIN_ACTIVITY = 1;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         intent.putExtra("booleanKey",true);
                         intent.putExtra("stringKey","CacttusEducation");
-                        startActivityForResult(intent,1);
+                        startActivityForResult(intent,REQUEST_CODE_MAIN_ACTIVITY);
                        // finish();
                     }else {
                         Toast.makeText(LoginActivity.this, getString(R.string.username_or_password_wrong), Toast.LENGTH_SHORT).show();
@@ -91,8 +94,8 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-        if (requestCode == 1 && resultCode == RESULT_OK){
-            String result = data.getStringExtra("key");
+        if (requestCode == REQUEST_CODE_MAIN_ACTIVITY && resultCode == RESULT_OK){
+            int result = data.getIntExtra("key",-1);
             Toast.makeText(LoginActivity.this, "Result is: " + result, Toast.LENGTH_SHORT).show();
         }
 

@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
        // showProgressDialog();
 
         Intent intent = getIntent();
-        intent.putExtra("key","CE");
+        intent.putExtra("key",100);
         setResult(RESULT_OK,intent);
         finish();
     }
