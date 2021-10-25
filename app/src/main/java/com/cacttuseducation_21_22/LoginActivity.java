@@ -1,5 +1,6 @@
 package com.cacttuseducation_21_22;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -40,8 +41,10 @@ public class LoginActivity extends AppCompatActivity {
                     if (emailOrUsername.equals(correctUsername) && password.equals(correctPassword)){
                         // open main activity
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        startActivity(intent);
-                        finish();
+                        intent.putExtra("booleanKey",true);
+                        intent.putExtra("stringKey","CacttusEducation");
+                        startActivityForResult(intent,1);
+                       // finish();
                     }else {
                         Toast.makeText(LoginActivity.this, getString(R.string.username_or_password_wrong), Toast.LENGTH_SHORT).show();
                     }
@@ -77,5 +80,21 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnLogin);
         btnOpenUrl = findViewById(R.id.btnOpenUrl);
         btnCallNumber = findViewById(R.id.btnCallNumber);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (data == null){
+            Toast.makeText(LoginActivity.this, "Data are null", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (requestCode == 1 && resultCode == RESULT_OK){
+            String result = data.getStringExtra("key");
+            Toast.makeText(LoginActivity.this, "Result is: " + result, Toast.LENGTH_SHORT).show();
+        }
+
     }
 }

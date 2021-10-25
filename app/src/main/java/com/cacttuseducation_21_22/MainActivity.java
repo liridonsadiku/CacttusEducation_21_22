@@ -7,6 +7,7 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -24,6 +25,11 @@ public class MainActivity extends AppCompatActivity {
 
         Toast.makeText(MainActivity.this, "Hello World", Toast.LENGTH_LONG).show();
 
+        if (getIntent().getExtras() != null){
+            boolean value = getIntent().getBooleanExtra("booleanKey",false);
+            String stringValue = getIntent().getStringExtra("stringKey");
+            System.out.println("Vlera ne ardhje eshte: " + stringValue);
+        }
     }
 
     @Override
@@ -65,9 +71,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
       //  super.onBackPressed();
-        showAlertDialog();
+        //showAlertDialog();
         //showTimePickerDialog();
        // showProgressDialog();
+
+        Intent intent = getIntent();
+        intent.putExtra("key","CE");
+        setResult(RESULT_OK,intent);
+        finish();
     }
 
     private void showProgressDialog() {
