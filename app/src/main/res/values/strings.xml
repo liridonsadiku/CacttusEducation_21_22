@@ -14,4 +14,5 @@
     <string name="google_url">https://www.google.com</string>
     <string name="username_or_password_wrong">Username or Password are wrong</string>
     <string name="please_fill_all_fields">Pslease fill all the fields!</string>
+    <string name="result">Result</string>
 </resources>
