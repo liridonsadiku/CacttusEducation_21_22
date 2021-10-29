@@ -13,10 +13,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CacttusEducation_21_22">
         <activity
-            android:name=".LoginActivity"
+            android:name=".activities.FunFactsActivity"
             android:exported="true" />
         <activity
-            android:name=".CalculatorActivity"
+            android:name=".activities.LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.CalculatorActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.UIExampleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,12 +33,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".UIExampleActivity"
-            android:exported="true" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true" />
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.cacttuseducation_21_22;
+package com.cacttuseducation_21_22.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.cacttuseducation_21_22.R;
 
 public class CalculatorActivity extends AppCompatActivity {
 
@@ -26,7 +28,6 @@ public class CalculatorActivity extends AppCompatActivity {
 
         findViews();
         onClickListeners();
-
 
     }
 

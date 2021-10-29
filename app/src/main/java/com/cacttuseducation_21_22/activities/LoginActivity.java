@@ -1,4 +1,4 @@
-package com.cacttuseducation_21_22;
+package com.cacttuseducation_21_22.activities;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.cacttuseducation_21_22.R;
 
 public class LoginActivity extends AppCompatActivity {
 

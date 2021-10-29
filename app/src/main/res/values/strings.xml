@@ -15,4 +15,5 @@
     <string name="username_or_password_wrong">Username or Password are wrong</string>
     <string name="please_fill_all_fields">Pslease fill all the fields!</string>
     <string name="result">Result</string>
+    <string name="did_you_know">Did you know?</string>
 </resources>

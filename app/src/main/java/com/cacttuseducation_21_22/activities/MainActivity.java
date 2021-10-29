@@ -1,4 +1,4 @@
-package com.cacttuseducation_21_22;
+package com.cacttuseducation_21_22.activities;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,17 +9,42 @@ import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
+import com.cacttuseducation_21_22.R;
 
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
+    Button btnLoginActivity, btnCalculator, btnFunFacts;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        btnLoginActivity = findViewById(R.id.btnLoginActivity);
+        btnCalculator = findViewById(R.id.btnCalculator);
+        btnFunFacts = findViewById(R.id.btnFunFacts);
+
+
+        btnLoginActivity.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+        });
+
+        btnCalculator.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, CalculatorActivity.class);
+            startActivity(intent);
+        });
+
+        btnFunFacts.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, FunFactsActivity.class);
+            startActivity(intent);
+        });
 
         System.out.println("metoda e thirrur eshte: onCreate");
 
