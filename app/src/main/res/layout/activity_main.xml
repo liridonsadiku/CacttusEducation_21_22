@@ -34,6 +34,12 @@
             android:layout_height="wrap_content"
             android:text="ListView" />
 
+        <Button
+            android:id="@+id/btnPersonList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PersonListView" />
+
     </LinearLayout>
 
 </ScrollView>
