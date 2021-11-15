@@ -20,7 +20,7 @@ import java.util.Calendar;
 public class MainActivity extends AppCompatActivity {
 
     Button btnLoginActivity, btnCalculator, btnFunFacts, btnListView,
-    btnPersonList;
+    btnPersonList,btnWeather;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         btnFunFacts = findViewById(R.id.btnFunFacts);
         btnListView = findViewById(R.id.btnListView);
         btnPersonList = findViewById(R.id.btnPersonList);
+        btnWeather = findViewById(R.id.btnWeather);
 
         btnLoginActivity.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);
@@ -55,6 +56,10 @@ public class MainActivity extends AppCompatActivity {
 
         btnPersonList.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, PersonActivity.class);
+            startActivity(intent);
+        });
+        btnWeather.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, WeatherActivity.class);
             startActivity(intent);
         });
 

@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CacttusEducation_21_22">
         <activity
+            android:name=".activities.WeatherActivity"
+            android:exported="true" />
+        <activity
             android:name=".activities.PersonActivity"
             android:exported="true" />
         <activity
