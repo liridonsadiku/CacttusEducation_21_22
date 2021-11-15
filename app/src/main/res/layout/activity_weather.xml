@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ListView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/weatherListView"
     tools:context=".activities.WeatherActivity">
 
-</ListView>
+    <Button
+        android:id="@+id/btnAddCity"
+        android:text="Add city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/weatherListView"
+        android:layout_below="@+id/btnAddCity"
+        />
+
+    <include layout="@layout/add_city_popup"/>
+
+</RelativeLayout>

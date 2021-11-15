@@ -3,7 +3,10 @@ package com.cacttuseducation_21_22.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 
 import com.cacttuseducation_21_22.R;
 import com.cacttuseducation_21_22.adapters.WeatherAdapter;
@@ -16,12 +19,16 @@ public class WeatherActivity extends AppCompatActivity {
     ListView weatherListView;
     ArrayList<Weather> weatherArrayList = new ArrayList<>();
     WeatherAdapter weatherAdapter;
+    Button btnAddCity;
+    RelativeLayout popup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather);
         weatherListView = findViewById(R.id.weatherListView);
+        btnAddCity = findViewById(R.id.btnAddCity);
+        popup = findViewById(R.id.relAddCityPopup);
 
         weatherArrayList.add(new Weather(R.mipmap.ic_launcher, "Prishtina", "Raining", "3°C"));
         weatherArrayList.add(new Weather(R.mipmap.ic_launcher, "Gjilani", "Snowing", "1°C"));
@@ -37,6 +44,10 @@ public class WeatherActivity extends AppCompatActivity {
 
         weatherAdapter = new WeatherAdapter(WeatherActivity.this,weatherArrayList);
         weatherListView.setAdapter(weatherAdapter);
+
+        btnAddCity.setOnClickListener(v -> {
+            popup.setVisibility(View.VISIBLE);
+        });
 
     }
 }
