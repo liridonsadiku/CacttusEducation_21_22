@@ -19,5 +19,6 @@
         />
 
     <include layout="@layout/add_city_popup"/>
+    <include layout="@layout/confirm_popup"/>
 
 </RelativeLayout>

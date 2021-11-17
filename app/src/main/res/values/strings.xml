@@ -16,4 +16,6 @@
     <string name="please_fill_all_fields">Pslease fill all the fields!</string>
     <string name="result">Result</string>
     <string name="did_you_know">Did you know?</string>
+    <string name="please_fill_all_the_fields">Please fill all the fields!</string>
+    <string name="grade_celcius">°C</string>
 </resources>

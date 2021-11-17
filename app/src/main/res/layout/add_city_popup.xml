@@ -17,19 +17,22 @@
         android:background="@color/colorGray"
         android:padding="@dimen/space_20"
         android:orientation="vertical">
+
         <EditText
             android:id="@+id/etCity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/bad_script"
             android:hint="Write City"
             android:inputType="text"
-            android:textSize="@dimen/text_size_20"/>
+            android:textSize="@dimen/text_size_20" />
 
         <EditText
             android:id="@+id/etStatus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Write Status"
+            android:fontFamily="@font/bad_script"
             android:inputType="text"
             android:textSize="@dimen/text_size_20"/>
 
@@ -38,12 +41,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Write Temperature"
+            android:fontFamily="@font/bad_script"
             android:inputType="numberDecimal"
             android:textSize="@dimen/text_size_20"/>
 
         <Button
             android:id="@+id/btnSubmit"
             android:text="Submit"
+            android:fontFamily="@font/bad_script"
             android:layout_marginTop="@dimen/space_30"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
