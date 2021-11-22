@@ -2,10 +2,14 @@ package com.cacttuseducation_21_22.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.cacttuseducation_21_22.R;
+import com.cacttuseducation_21_22.adapters.CompanyAdapter;
 import com.cacttuseducation_21_22.models.Company;
 
 import java.util.ArrayList;
@@ -13,6 +17,7 @@ import java.util.ArrayList;
 public class CompanyActivity extends AppCompatActivity {
     GridView gridView;
     ArrayList<Company> arrayList = new ArrayList<>();
+    CompanyAdapter companyAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +26,19 @@ public class CompanyActivity extends AppCompatActivity {
         gridView = findViewById(R.id.gridView);
 
         populateArrayList();
+
+        companyAdapter = new CompanyAdapter(CompanyActivity.this,arrayList);
+        gridView.setAdapter(companyAdapter);
+
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(CompanyActivity.this, CompanyDetailActivity.class);
+                Company company = arrayList.get(position);
+                intent.putExtra("company", company);
+                startActivity(intent);
+            }
+        });
 
     }
 

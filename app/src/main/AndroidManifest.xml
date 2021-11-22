@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CacttusEducation_21_22">
         <activity
+            android:name=".activities.CompanyDetailActivity"
+            android:exported="true" />
+        <activity
             android:name=".activities.CompanyActivity"
             android:exported="true" />
         <activity
