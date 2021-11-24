@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CacttusEducation_21_22">
         <activity
+            android:name=".ConstraintLayoutExampleActivity"
+            android:exported="true" />
+        <activity
             android:name=".activities.CompanyDetailActivity"
             android:exported="true" />
         <activity
