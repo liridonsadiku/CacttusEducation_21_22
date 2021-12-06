@@ -19,4 +19,6 @@
     <string name="please_fill_all_the_fields">Please fill all the fields!</string>
     <string name="grade_celcius">°C</string>
     <string name="kungfu_panda">KUNGFU PANDA</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
