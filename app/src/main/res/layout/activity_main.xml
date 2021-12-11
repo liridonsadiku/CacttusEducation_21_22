@@ -70,6 +70,12 @@
             android:layout_height="wrap_content"
             android:text="Static Fragment" />
 
+        <Button
+            android:id="@+id/btnDynamicFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dynamic Fragment" />
+
     </LinearLayout>
 
 </ScrollView>

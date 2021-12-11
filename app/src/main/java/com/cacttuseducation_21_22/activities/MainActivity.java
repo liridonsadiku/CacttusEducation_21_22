@@ -20,7 +20,8 @@ import java.util.Calendar;
 public class MainActivity extends AppCompatActivity {
 
     Button btnLoginActivity, btnCalculator, btnFunFacts, btnListView,
-    btnPersonList,btnWeather,btnCompany, btnPanda, btnRecyclerView, btnStaticFragment;
+    btnPersonList,btnWeather,btnCompany, btnPanda, btnRecyclerView, btnStaticFragment,
+    btnDynamicFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         btnPanda = findViewById(R.id.btnPanda);
         btnRecyclerView = findViewById(R.id.btnRecyclerView);
         btnStaticFragment = findViewById(R.id.btnStaticFragment);
+        btnDynamicFragment = findViewById(R.id.btnDynamicFragment);
 
         btnLoginActivity.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);
@@ -84,6 +86,11 @@ public class MainActivity extends AppCompatActivity {
 
         btnStaticFragment.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, StaticFragmentHolderActivity.class);
+            startActivity(intent);
+        });
+
+        btnDynamicFragment.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, DynamicFragmentHolderActivity.class);
             startActivity(intent);
         });
 
