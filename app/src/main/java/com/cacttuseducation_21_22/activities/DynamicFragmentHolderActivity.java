@@ -16,6 +16,7 @@ import com.cacttuseducation_21_22.fragments.SecondFragment;
 public class DynamicFragmentHolderActivity extends AppCompatActivity {
 
     TextView tvFirstFragment, tvSecondFragment;
+    View firstFragmentIndicator, secondFragmentIndicator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,8 @@ public class DynamicFragmentHolderActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dynamic_fragment_holder);
         tvFirstFragment = findViewById(R.id.tvFirstFragment);
         tvSecondFragment = findViewById(R.id.tvSecondFragment);
+        firstFragmentIndicator = findViewById(R.id.firstFragmentIndicator);
+        secondFragmentIndicator = findViewById(R.id.secondFragmentIndicator);
 
         loadFragment(new FirstFragment());
 
@@ -30,6 +33,8 @@ public class DynamicFragmentHolderActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 loadFragment(new FirstFragment());
+                firstFragmentIndicator.setVisibility(View.VISIBLE);
+                secondFragmentIndicator.setVisibility(View.INVISIBLE);
             }
         });
 
@@ -37,10 +42,11 @@ public class DynamicFragmentHolderActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 loadFragment(new SecondFragment());
+                firstFragmentIndicator.setVisibility(View.INVISIBLE);
+                secondFragmentIndicator.setVisibility(View.VISIBLE);
             }
         });
     }
-
 
     private void loadFragment(Fragment fragment){
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -51,6 +57,5 @@ public class DynamicFragmentHolderActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.relFragmentHolder, fragment);
         //save the changes
         fragmentTransaction.commit();
-
     }
 }
