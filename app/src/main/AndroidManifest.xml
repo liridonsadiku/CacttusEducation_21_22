@@ -13,6 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CacttusEducation_21_22">
         <activity
+            android:name=".activities.DrawerLayoutActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity
             android:name=".activities.DynamicFragmentHolderActivity"
             android:exported="true" />
         <activity

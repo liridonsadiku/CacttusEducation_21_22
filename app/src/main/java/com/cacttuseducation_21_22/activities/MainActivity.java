@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button btnLoginActivity, btnCalculator, btnFunFacts, btnListView,
     btnPersonList,btnWeather,btnCompany, btnPanda, btnRecyclerView, btnStaticFragment,
-    btnDynamicFragment;
+    btnDynamicFragment,btnMenuExample;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         btnRecyclerView = findViewById(R.id.btnRecyclerView);
         btnStaticFragment = findViewById(R.id.btnStaticFragment);
         btnDynamicFragment = findViewById(R.id.btnDynamicFragment);
+        btnMenuExample = findViewById(R.id.btnMenuExample);
 
         btnLoginActivity.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);
@@ -91,6 +92,11 @@ public class MainActivity extends AppCompatActivity {
 
         btnDynamicFragment.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, DynamicFragmentHolderActivity.class);
+            startActivity(intent);
+        });
+
+        btnMenuExample.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, DrawerLayoutActivity.class);
             startActivity(intent);
         });
 

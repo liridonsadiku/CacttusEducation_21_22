@@ -23,4 +23,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="second_fragment">Second Fragment</string>
     <string name="first_fragment">First Fragment</string>
+    <string name="congratulations">Congratulations</string>
+    <string name="you_just_displayed_this_awesome_popup">You just displayed this awesome popup</string>
 </resources>
