@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button btnLoginActivity, btnCalculator, btnFunFacts, btnListView,
     btnPersonList,btnWeather,btnCompany, btnPanda, btnRecyclerView, btnStaticFragment,
-    btnDynamicFragment,btnMenuExample;
+    btnDynamicFragment,btnMenuExample,btnHeroes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +40,13 @@ public class MainActivity extends AppCompatActivity {
         btnStaticFragment = findViewById(R.id.btnStaticFragment);
         btnDynamicFragment = findViewById(R.id.btnDynamicFragment);
         btnMenuExample = findViewById(R.id.btnMenuExample);
+        btnHeroes = findViewById(R.id.btnHeroes);
+
+        btnHeroes.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, HeroesActivity.class);
+            startActivity(intent);
+        });
+
 
         btnLoginActivity.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);

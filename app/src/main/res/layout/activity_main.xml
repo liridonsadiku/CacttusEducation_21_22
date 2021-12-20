@@ -82,6 +82,12 @@
             android:layout_height="wrap_content"
             android:text="Menu example" />
 
+        <Button
+            android:id="@+id/btnHeroes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Heroes api call" />
+
     </LinearLayout>
 
 </ScrollView>
