@@ -25,4 +25,7 @@
     <string name="first_fragment">First Fragment</string>
     <string name="congratulations">Congratulations</string>
     <string name="you_just_displayed_this_awesome_popup">You just displayed this awesome popup</string>
+
+    <string name="hello_world">Tungjatjeta</string>
+
 </resources>

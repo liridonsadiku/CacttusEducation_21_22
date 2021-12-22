@@ -14,6 +14,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CacttusEducation_21_22">
         <activity
+            android:name=".activities.MultiLanguageActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.WebViewActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".activities.HeroDetailsActivity"
             android:exported="true" />
         <activity
@@ -70,13 +85,7 @@
             android:exported="true" />
         <activity
             android:name=".activities.MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
     </application>
 
 </manifest>

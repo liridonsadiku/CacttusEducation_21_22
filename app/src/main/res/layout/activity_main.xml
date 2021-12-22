@@ -88,6 +88,18 @@
             android:layout_height="wrap_content"
             android:text="Heroes api call" />
 
+        <Button
+            android:id="@+id/btnWebView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Web View" />
+
+        <Button
+            android:id="@+id/btnMultiLanguageActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="MultiLanguage" />
+
     </LinearLayout>
 
 </ScrollView>
