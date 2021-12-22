@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -53,6 +55,16 @@ public class HeroesActivity extends AppCompatActivity {
             @Override
             public void onRefresh() {
                 makeApiCallAndLoadDataIntoListView();
+            }
+        });
+
+        heroesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(HeroesActivity.this, HeroDetailsActivity.class);
+                Hero hero = heroesArrayList.get(position);
+                intent.putExtra("heroObject",hero);
+                startActivity(intent);
             }
         });
     }

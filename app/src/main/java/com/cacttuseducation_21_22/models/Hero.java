@@ -3,7 +3,9 @@ package com.cacttuseducation_21_22.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Hero {
+import java.io.Serializable;
+
+public class Hero implements Serializable {
 
     @SerializedName("name")
     @Expose
