@@ -27,5 +27,6 @@
     <string name="you_just_displayed_this_awesome_popup">You just displayed this awesome popup</string>
 
     <string name="hello_world">Hello World</string>
+    <string name="name">Name</string>
 
 </resources>
