@@ -21,7 +21,8 @@ public class MainActivity extends AppCompatActivity {
 
     Button btnLoginActivity, btnCalculator, btnFunFacts, btnListView,
     btnPersonList,btnWeather,btnCompany, btnPanda, btnRecyclerView, btnStaticFragment,
-    btnDynamicFragment,btnMenuExample,btnHeroes, btnWebView, btnMultiLanguage, btnSharedPreferences;
+    btnDynamicFragment,btnMenuExample,btnHeroes, btnWebView, btnMultiLanguage,
+            btnSharedPreferences, btnAnimations;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,12 @@ public class MainActivity extends AppCompatActivity {
         btnWebView = findViewById(R.id.btnWebView);
         btnMultiLanguage = findViewById(R.id.btnMultiLanguageActivity);
         btnSharedPreferences = findViewById(R.id.btnSharedPreferences);
+        btnAnimations = findViewById(R.id.btnAnimations);
+
+        btnAnimations.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, AnimationsActivity.class);
+            startActivity(intent);
+        });
 
         btnSharedPreferences.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, SharedPreferencesActivity.class);
