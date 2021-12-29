@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnAnimations.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, AnimationsActivity.class);
+            overridePendingTransition(R.anim.slide_in_bottom,R.anim.slide_out_bottom);
             startActivity(intent);
         });
 
