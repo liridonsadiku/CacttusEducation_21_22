@@ -1,19 +1,34 @@
 package com.cacttuseducation_21_22.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.cacttuseducation_21_22.R;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.OnUserEarnedRewardListener;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
+import com.google.android.gms.ads.rewarded.RewardItem;
+import com.google.android.gms.ads.rewarded.RewardedAd;
+import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
 
 import java.util.Calendar;
 
@@ -22,7 +37,12 @@ public class MainActivity extends AppCompatActivity {
     Button btnLoginActivity, btnCalculator, btnFunFacts, btnListView,
     btnPersonList,btnWeather,btnCompany, btnPanda, btnRecyclerView, btnStaticFragment,
     btnDynamicFragment,btnMenuExample,btnHeroes, btnWebView, btnMultiLanguage,
-            btnSharedPreferences, btnAnimations;
+            btnSharedPreferences, btnAnimations, btnInterstitialAd, btnRewardAd;
+
+    private AdView adView;
+    private InterstitialAd mInterstitialAd;
+    private RewardedAd mRewardedAd;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +66,52 @@ public class MainActivity extends AppCompatActivity {
         btnMultiLanguage = findViewById(R.id.btnMultiLanguageActivity);
         btnSharedPreferences = findViewById(R.id.btnSharedPreferences);
         btnAnimations = findViewById(R.id.btnAnimations);
+        adView = findViewById(R.id.adView);
+        btnInterstitialAd = findViewById(R.id.btnInterstitialAd);
+        btnRewardAd = findViewById(R.id.btnRewardAd);
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
+
+        implementInterstitialAd();
+        implementRewardedAd();
+
+        btnInterstitialAd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mInterstitialAd != null){
+                    mInterstitialAd.show(MainActivity.this);
+                }else {
+                    Toast.makeText(MainActivity.this, "Ad isn't loaded yet", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        btnRewardAd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mRewardedAd != null) {
+                    Activity activityContext = MainActivity.this;
+                    mRewardedAd.show(activityContext, new OnUserEarnedRewardListener() {
+                        @Override
+                        public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
+                            // Handle the reward.
+                            int rewardAmount = rewardItem.getAmount();
+                            String rewardType = rewardItem.getType();
+                        }
+                    });
+                } else {
+                    Toast.makeText(MainActivity.this, "The rewarded ad wasn't ready yet.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
 
         btnAnimations.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, AnimationsActivity.class);
@@ -142,6 +208,45 @@ public class MainActivity extends AppCompatActivity {
             String stringValue = getIntent().getStringExtra("stringKey");
             System.out.println("Vlera ne ardhje eshte: " + stringValue);
         }
+    }
+
+    private void implementRewardedAd() {
+        AdRequest adRequest = new AdRequest.Builder().build();
+
+        RewardedAd.load(this, "ca-app-pub-3940256099942544/5224354917",
+                adRequest, new RewardedAdLoadCallback() {
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        // Handle the error.
+                        mRewardedAd = null;
+                    }
+
+                    @Override
+                    public void onAdLoaded(@NonNull RewardedAd rewardedAd) {
+                        mRewardedAd = rewardedAd;
+                    }
+                });
+    }
+
+    private void implementInterstitialAd() {
+        AdRequest adRequest = new AdRequest.Builder().build();
+
+        InterstitialAd.load(this,"ca-app-pub-3940256099942544/1033173712", adRequest,
+                new InterstitialAdLoadCallback() {
+                    @Override
+                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                        // The mInterstitialAd reference will be null until
+                        // an ad is loaded.
+                        mInterstitialAd = interstitialAd;
+                    }
+
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        // Handle the error
+                        mInterstitialAd = null;
+                    }
+                });
+
     }
 
     @Override
